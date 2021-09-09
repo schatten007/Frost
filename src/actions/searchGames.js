@@ -8,5 +8,5 @@ export const searchGames = (game) => async (dispatch) => {
         payload: {
             searched: searched.data.results
         }
-    })
+    });
 }

@@ -4,6 +4,7 @@ import { FaSnowflake } from "react-icons/fa";
 import {useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchGames } from "../actions/searchGames";
+import { clearSearch } from "../actions/clearSearch";
 
 const Nav = () => {
     
@@ -16,12 +17,17 @@ const Nav = () => {
 
     const searchHandler = () => {
         dispatch(searchGames(searchText));
+        setSearchText("");
+    }
+
+    const clearSearchHandler = () => {
+        dispatch(clearSearch());
     }
 
     return(
         <StyledNav>
             <Logo>
-                <FaSnowflake />
+                <FaSnowflake onClick={clearSearchHandler} />
                 <h3>Frost</h3>
             </Logo>
             <Search>
